@@ -1,0 +1,777 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="project_style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap.min.css">
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- <link href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdn.datatables.net/extensions/Editor/css/editor.dataTables.min.css" rel="stylesheet"
+        type="text/css" /> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/jquery-dropdown-datepicker"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+        integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous"></script>
+     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script src="savedata.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
+
+    <style>
+        input[type="checkbox"].error {
+            margin-left: 0px;
+            position: relative;
+            padding-left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container">
+            <div class="heading">JOB APPLICATION</div>
+            <form action="#" class="form-horizontal" id="frm" autocomplete="off">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Name">Name <span style="color:red"> *</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Name" name="Name">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label col-sm-2">Gender <span style="color:red">*</span></label>
+                    <div class="col-sm-6 ">
+                        <div id="gender">
+                            <input type="radio" id="Radio_btn1" name="Radio_btn" value="Male">
+                            <label for="Male">Male</label>
+                            <input type="radio" id="Radio_btn2" name="Radio_btn" value="Female">
+                            <label for="Female">Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="DOB">DOB <span style="color:red"> *</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control datepicker-dropdown" id="DOB" name="DOB"
+                            placeholder="__-__-__">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Age">Age </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Age" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Degree">Degree <span style="color:red"> *</span></label>
+                    <div class="col-sm-6" id="dropdown">
+                        <select class="form-control" id="Degree" name="Degree">
+                            <option value="">Select Degree</option>
+                            <option>B.com</option>
+                            <option>M.com</option>
+                            <option>B.Tech</option>
+                            <option>M.Tech</option>
+                            <option>B.sc</option>
+                        </select>
+                        <h5 id="msg"></h5>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="year_of_passing">year of passing <span style="color:red">
+                            *</span></label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="year_of_Passing" name="year_of_Passing">
+                            <option value="">Select year of Passing</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Course_Start_Date">Course Start Date <span
+                            style="color:red"> *</span></label>
+                    <div class="col-sm-6">
+                        <div>
+                            <input type="text" class="form-control inputfield datepicker-inputmask"
+                                id="Course_Start_Date" name="Course_Start_Date" placeholder="__-__-__">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Course_End_Date">Course End Date <span style="color:red">
+                            *</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Course_End_Date" name="Course_End_Date"
+                            placeholder="__-__-__">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Cgpa">Cgpa <span style="color:red"> *</span></label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="Cgpa" min="3" max="10" step="0.1" name="Cgpa">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Email">Email <span style="color:red"> *</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Email" placeholder="abc@gmail.com" name="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Contact">Contact <span style="color:red">
+                            *</span></label>
+                    <div class="col-sm-6">
+                        <input type="tel" class="form-control" id="Contact" pattern="+1-[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            placeholder="+1 (586) 324-0514" name="Contact">
+                    </div>
+                </div>
+                <!-- <div class="form-group ">
+                    <label class="control-label col-sm-2">Certification <span style="color:red">
+                            *</span></label> -->
+
+                <!-- <div class="col-sm-6">
+                        <div id="certification">
+                            <div>
+                                <label><input type="checkbox" value="" id="Certification1" name="Certification"
+                                        style="margin-right: 5px;">Java</label>
+                            </div>
+                            <div>
+                                <label><input type="checkbox" value="" id="Certification2" name="Certification"
+                                        style="margin-right: 5px;">Angularjs</label>
+                            </div>
+                            <div>
+                                <label><input type="checkbox" value="" id="Certification3" name="Certification"
+                                        style="margin-right: 5px; font-weight:noraml">Other</label>
+                            </div>
+                        </div>
+                    </div> -->
+                <!-- </div> -->
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Profile">Upload Profile <span style="color:red">
+                            *</span></label>
+                    <div class="col-sm-6">
+                        <input type="file" class="form-control" id="Profile" name="Profile">
+                    </div>
+                </div>
+                <input type="submit" value="Submit" id="submit">
+                <input type="reset" value="Reset" id="Reset">
+            </form>
+        </div>
+        <div class="right">
+            <!-- <div class="col-md-4 p10 ml-10 abc">
+                <label for="search_by_column" style="font-weight:lighter">Search By</label>
+                <select id="search_by_column" name="search_by_column">
+                    <option value="Name">Candidate Name</option>
+                    <option value="Status">Candidate Status</option>
+                    <option value="Contact">Contact</option>
+                </select>
+            </div> -->
+
+            <table id="mytable" class="display cell-border table table-striped table-bordered" width="120%">
+                <thead>
+                    <tr>
+                        <!-- <th>S.No</th> -->
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Degree</th>
+                        <th>Pass out</th>
+                        <!-- <th>Experience</th> -->
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Profile</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+            </table>
+            <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+
+            <!-- <script>
+                $(document).ready(function () {
+
+                });
+            </script> -->
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Do you want to Delete Applicant's info ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">The record that you are about to delete can't be rolled back.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" id="yes">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Candidate Information</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group ">
+                        <label class="control-label col-sm-2">Name : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="name_view" name="name_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Gender : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="gender_view" name="gender_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">DOB : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="dob_view" name="dob_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Age : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="age_view" name="Age_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Degree : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="degree_view" name="degree_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Year of passing : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="pass_view" name="pass_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Course_Start_Date: </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="start_view" name="start_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Course_End_Date: </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="end_view" name="end_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Cgpa : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="cgpa_view" name="cgpa_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Email : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="email_view" name="email_view" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group fg">
+                        <label class="control-label col-sm-2">Contact : </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="contact_view" name="contact_view" disabled>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                </div>
+                <!-- </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <!-- <script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+        integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="https://nightly.datatables.net/js/dataTables.bootstrap4.min.js "></script>
+
+
+    <script scr=" https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+    <script src="js/jquery.validate.js"></script>
+    <script src="savedata_new.js"></script>
+
+
+    <script>
+        let content, localData;
+        var editor;
+        var abcd = -1;
+        let isEdit = false;
+
+        $(document).ready(function () {
+
+
+            $("#frm").validate({
+                rules: {
+                    Name: {
+                        required: true,
+                        onlyalpha: true
+                    },
+                    Radio_btn: "required",
+                    DOB: {
+                        required: true,
+                        date: true,
+                        myage: true
+                    },
+                    Degree:
+                    {
+                        required: true
+                    },
+                    year_of_Passing: "required",
+                    Course_Start_Date: {
+                        required: true,
+                        dateValidation: true,
+
+                    },
+                    Course_End_Date: {
+                        required: true,
+                        dateValidation: true
+                    },
+                    Cgpa: {
+                        required: true,
+                        number: true
+                    },
+                    Email: {
+                        required: true,
+                        email_validate: true
+                    },
+                    Contact: {
+                        required: true,
+                        maxlength: 14,
+                        minlength: 14,
+                        uniqueval: true
+
+                    },
+                    Certification: "required",
+                    Profile: {
+                        required: true,
+
+                        fleformat: true,
+                        fileSize: 104800
+
+                    },
+                },
+                messages: {
+                    Name: {
+                        required: "Enter a Name",
+
+                    },
+
+                    Radio_btn: "Choose a Gender",
+                    DOB: {
+                        required: "Enter DOB",
+                        date: "Enter Date in correct format",
+                        myage: "age must be greater than 21"
+                    },
+
+                    Degree: {
+                        required: "select an option"
+                    },
+                    year_of_Passing: "Select Year of passing",
+                    Course_Start_Date: {
+                        required: "select a start date",
+                        minDate: "start date should be 2014",
+                        maxDate: "max date must be 2018"
+
+                    },
+                    Course_End_Date: {
+                        required: "Select a end date",
+
+                    },
+                    Cgpa: {
+                        required: "Cgpa required",
+                        number: "Enter a valid number"
+                    },
+                    Email: {
+                        required: "Email required",
+
+                    },
+                    Contact: {
+                        required: "contact required",
+                        maxlength: "Maximum length must be 14",
+                        minlength: "Minimum length must be 14",
+                        uniqueval: "Duplicate"
+                    },
+                    Certification: "Choose a certification",
+                    Profile: {
+                        required: "Please upload your profile",
+
+                        fleformat: "choose correct format",
+                        fileSize: "incorrect size"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    if (element.is(":radio")) {
+                        error.insertAfter('#gender');
+                    }
+                    else if (element.is(":checkbox")) {
+
+                        error.insertAfter("#certification");
+                    }
+                    else {
+                        error.insertAfter(element);
+                    }
+                }
+            });
+            $.validator.addMethod('onlyalpha', function (value, element, param) {
+                return this.optional(element) || /^([a-zA-Z][\s]?)*$/i.test(value);
+            }, "Only alphabets and single space are allowed.");
+
+            $("#year_of_Passing").on("change", function () {
+                let selYear = $("#year_of_Passing").val();
+                let startMaxDate = new Date(selYear - 4, 11, 31);
+                let endMaxDate = new Date(selYear, 11, 31);
+
+                $("#Course_Start_Date").datepicker("option", "maxDate", startMaxDate);
+                $("#Course_End_Date").datepicker("option", "maxDate", endMaxDate);
+
+            });
+
+            $('input[name="DOB"]').mask('00-00-0000');
+            var age;
+            $("#DOB").datepicker({
+                showOn: "both",
+                buttonText: '<i class="fa fa-calendar"><i>',
+                dateFormat: "mm-dd-yy",
+                changeMonth: true,
+                changeYear: true,
+
+                maxDate: 0,
+
+                onSelect: function myage(value, ui) {
+                    var today = new Date();
+                    age = today.getFullYear() - ui.selectedYear;
+                    $("#Age").attr({ disabled: false });
+                    $("#Age").val(age);
+
+                },
+
+
+            });
+            $('input[name="Course_Start_Date"]').mask('00-00-0000');
+            $("#Course_Start_Date").datepicker({
+                showOn: "both",
+                buttonText: '<i class="fa fa-calendar"><i>',
+                dateFormat: "mm-dd-yy",
+
+                onSelect: function start(selectdate) {
+                    var dt = new Date(selectdate);
+                    dt.setDate(dt.getDate() + 1)
+                    $("#Course_End_Date").datepicker("option", "minDate", dt);
+                },
+                onfocus: function () {
+                    if ($(this).val()) {
+                        $(this).valid();
+                    }
+                    $(this).focus();
+                }
+            });
+
+            $.validator.addMethod('myage', function (value, element) {
+                let curdate = new Date();
+                let seldate = new Date($('#DOB').val());
+                let val1 = seldate.getFullYear();
+                let val2 = curdate.getFullYear();
+                if ((val2 - val1) > 21) {
+                    return true;
+                }
+
+            }, "Age must be greater than 18");
+
+            $('input[name="Course_End_Date"]').mask('00-00-0000');
+
+            $("#Course_End_Date").datepicker({
+                showOn: "both",
+                buttonText: '<i class="fa fa-calendar"><i>',
+                dateFormat: "mm-dd-yy",
+
+                onSelect: function (selectdate) {
+                    var dt = new Date(selectdate);
+                    dt.setDate(dt.getDate() - 1)
+
+                },
+                onfocus: function () {
+                    if ($(this).val()) {
+                        $(this).valid();
+                    }
+                    $(this).focus();
+                }
+            });
+            $.validator.addMethod('dateValidation', function (value, element, param) {
+                if (value) {
+                    const regexStatus = /^(0[1-9]|1[0-2])\-(0[1-9]|1\d|2\d|3[01])\-(19|20)\d{2}$/i.test(value);
+                    if (regexStatus === false) {
+                        return false;
+                    } else {
+                        const selectedDate = new Date(value);
+                        const selectedDateInArray = value.split("-");
+                        return this.optional(element) || regexStatus && (parseInt(selectedDateInArray[2]) === selectedDate.getFullYear() &&
+                            (selectedDate.getMonth() + 1) === parseInt(selectedDateInArray[0]) && (parseInt(selectedDateInArray[1]) === selectedDate.getDate()));
+                    }
+                } else
+                    return true;
+            }, "Invalid date format (Ex:MM/DD/YYYY).");
+
+            $.validator.addMethod('email_validate', function (value, element, param) {
+                const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return this.optional(element) || emailRegex.test(value);
+            }, "Email is Invalid.");
+
+            $('input[name="Contact"]').mask('(000) 000-0000');
+
+            $.validator.addMethod('fleformat', function (value) {
+                let ext = $('#Profile').val().split('.').pop().toLowerCase();
+
+                if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            })
+
+            $.validator.addMethod('uniqueval', function (value) {
+                let mobile = JSON.parse(localStorage.getItem('info') || '[]');
+                // let length1 = mobile[1].length;
+                // let length1 = mobile[4].length;
+                // let arraylength = mobile.length;
+
+                if (mobile.some(param => param[4] == value) && isEdit !== true)
+                    return false;
+                else {
+                    return true;
+                }
+
+
+
+            });
+
+            $.validator.addMethod("fileSize", function (value, element, param) {
+                return this.optional(element) || (element.files[0].size <= param);
+            }, function (param, element) {
+                return "File size must be less than or equal to " + param / 1000000 + " MB.";
+            });
+
+
+            $('#mytable').DataTable({
+
+                responsive: true,
+
+                dom: '<"top"><"search"><"filter">rt<"bottom"ip>',
+                displayLength: 5,
+                ordering: false,
+                data: [],
+                columns: [
+                    { title: "Name" },
+                    { title: "Gender" },
+                    { title: "Degree" },
+                    { title: "Passout" },
+                    { title: "Contact" },
+                    { title: "Email" },
+                    { title: "Age" },
+                    { title: "Profile" },
+                    { title: "Status" },
+                    {
+                        title: "Action",
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<span id="edit" ><i class="fa fa-edit" style="font-size:15px"></i></span> <span id="delete" ><i class="fa fa-trash" style="font-size:15px"></i></span> <span id="view" ><i class="fa fa-arrows-alt" style="font-size:15px"></i></span>';
+
+                        }
+                    }
+
+                ],
+
+            });
+
+            content = $('#mytable').DataTable();
+            localData = JSON.parse(localStorage.getItem('info') || "[]");
+            for (let i = 0; i < localData.length; i++) {
+                content.row.add(localData[i]).draw();
+            }
+
+            $('#mytable').on('click', '#delete', function () {
+                let rowIndex = $(this).parents('tr').index()
+                let rowDataIndex = $(this).parents('tr');
+                $('#myModal').modal('show');
+                $("#yes").on("click", function () {
+                    $('#myModal').modal('hide');
+                    content.row(rowDataIndex).remove().draw();
+                    localData.splice(rowIndex, 1);
+                    localStorage.setItem("info", JSON.stringify(localData));
+                });
+            });
+
+
+            $('#mytable').on('click', '#view', function () {
+                let rowIndex = $(this).parents('tr').index()
+
+                let rowDataIndex = $(this).parents('tr');
+                console.log(rowDataIndex);
+                console.log(rowDataIndex[0]._DT_RowIndex);
+                let location = rowDataIndex[0]._DT_RowIndex;
+                $('#myModal1').modal('show');
+                $('#name_view').val(localData[location][0]);
+                $('#gender_view').val(localData[location][1]);
+                $('#degree_view').val(localData[location][2]);
+                $('#dob_view').val(localData[location][11]);
+                $('#contact_view').val(localData[location][4]);
+                $('#email_view').val(localData[location][5]);
+                $('#cgpa_view').val(localData[location][12]);
+                $('#age_view').val(localData[location][6]);
+                $('#pass_view').val(localData[location][3]);
+                $('#start_view').val(localData[location][10]);
+                $('#end_view').val(localData[location][9]);
+
+            });
+
+            $('#mytable').on('click', '#edit', function () {
+                document.getElementById("submit").value = "Update";
+                var rowIndex = $(this).parents('tr').index();
+                abcd = rowIndex;
+
+                const editData = localData[rowIndex];
+                let rowDataIndex = $(this).parents('tr');
+                let location = rowDataIndex[0]._DT_RowIndex;
+                $('#Name').val(localData[location][0]);
+                let gender = localData[location][1]
+                $("input[name=Radio_btn][value=" + gender + "]").prop('checked', true);
+                $('#Degree').val(localData[location][2]);
+                $('#DOB').val(localData[location][11]);
+                $('#Contact').val(localData[location][4]);
+                $('#Email').val(localData[location][5]);
+                $('#Cgpa').val(localData[location][12]);
+                $('#Age').val(localData[location][6]);
+                $('#year_of_Passing').val(localData[location][3]);
+                $('#Course_Start_Date').val(localData[location][10]);
+                $('#Course_End_Date').val(localData[location][9]);
+                isEdit = true;
+            });
+            $(".top").append(`<label style="font-weight:lighter">Show </label><select name="mytable_length" aria-controls="mytable" class="form-control" id="show">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="-1">All</option>
+                </select> 
+                `);
+
+            $(".search").append(`<div class="form-group col-sm-4 " id="new_area">
+                <label for="Search_value" style="font-weight:lighter">Search By Name</label>
+                <input type="text" id="Search_value" name="Search_value" class="form-control ">
+            </div>`);
+
+            $(".filter").append(`<label style="font-weight:lighter">Filter By Status</label><select name="mytable_filter" aria-controls="mytable" class="form-control" id="filter_value">
+                <option value="-1">All</option>
+                <option value="Completed">Completed</option>
+                <option value="Incomplete">Incomplete</option>
+                </select> 
+                `);
+
+            var k = $('#mytable').DataTable();
+            $('#Search_value').on('keyup', function () {
+                // console.log("hi");
+                var sval = $('#Search_value').val();
+                console.log(sval);
+                k.columns(0).search(this.value).draw();
+            });
+
+            $('#filter_value').on('change', function () {
+                // console.log("hi");
+                var fval = $('#filter_value').val();
+
+                console.log(fval.length);
+                if (fval === "Completed") {
+                    k.columns(8).search(fval).draw();
+                    // k.columns(8).search(this.val).draw();
+                }
+                else if (fval === "Incomplete") {
+                    k.columns(8).search(fval).draw();
+                }
+                else {
+                    fval = "Complete" || "Incomplete";
+                    k.columns(8).search(fval).draw();
+
+
+                }
+            });
+            $('#show').val(content.page.len());
+            $('#show').on('change', function () {
+
+                var showval = $('#show').val();
+
+                content.page.len($(this).val()).draw();
+
+            });
+
+
+            $('#submit').on('click', function (event) {
+                document.getElementById("submit").value = "Submit";
+                event.preventDefault();
+
+                if ($("#frm").valid()) {
+                    isEdit = false;
+                    saveData();
+
+
+                }
+            })
+
+        });
+    </script>
+</body>
+
+</html>

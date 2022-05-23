@@ -1,0 +1,218 @@
+.heading {
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
+    width: auto;
+    padding: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+.container {
+    background-color: white;
+    float: left;
+    /* width initially 30% */
+    width: 35%;
+    margin-right: 30px;
+    margin-top: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+}
+
+.row {
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+#frm {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#mytable {
+    /* width: 22%; */
+    border-collapse: collapse;
+    color: black;
+    font-size: small;
+
+}
+
+input[type="checkbox"] {
+    position: relative;
+}
+
+.datepicker {
+    padding: 30px;
+    text-align: center;
+}
+
+.icon {
+    padding: 10px;
+    color: black;
+    /* min-width: 50px; */
+    /* text-align: center; */
+}
+
+.inputfield .icon {
+    padding-left: 10px;
+}
+
+/* 
+th {
+    height: 20px;
+    text-align: left;
+    vertical-align: middle;
+    background-color: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-weight: lighter;
+}  */
+
+.right {
+    float: right;
+    background-color: white;
+    /* width: 40%;  change to 60 based on resolution */
+    width: 50%;
+    margin-right: 140px;
+}
+
+select {
+    width: 100%;
+    border: 1px solid lightgray;
+    height: 6%;
+    border-radius: 4px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #04AA6D;
+    color: white;
+    margin-top: 20px;
+    margin-left: 70px;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    padding: 10px;
+}
+
+.error {
+    margin-left: 0 !important;
+    color: black !important;
+}
+
+label.error {
+    color: red !important;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+label.control-label.col-sm-2 {
+    width: 160px;
+}
+
+#certification label {
+    font-weight: normal !important;
+}
+
+button.ui-datepicker-trigger {
+    padding: 8px 5px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    display: inline !important;
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+    margin-right: 0% !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border: none !important;
+}
+
+
+.page-item.active .page-link {
+    background-color: #04AA6D !important;
+    border: 1px solid black;
+}
+
+.imag {
+    border-radius: 50%;
+}
+
+#new_area {
+    /* align-content: center; */
+    /* margin-top: 10px; */
+    /* float: left; */
+    margin-left: 1%;
+}
+
+.search_box {
+    margin-left: 0px;
+}
+
+.top {
+    float: left;
+    margin-top: 0%;
+    margin-left: 0%;
+}
+
+.search {
+    float: right;
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 70%;
+}
+
+.filter {
+    float: right !important;
+    margin-top: 0%;
+    margin-left: 0%;
+}
+
+.modal-content {
+    height: 80%;
+    border-radius: 0;
+    position: relative;
+}
+
+.modal-footer {
+    border-radius: 0;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+.fg {
+    margin-top: 20px;
+}
+
+/* .abc {
+    display: table;
+} */
+
+/* .page-item {
+    background-color: #04AA6D !important;
+    border: 1px solid black;
+}
+
+ul {
+    display: inline;
+} */
+
+/* 
+paginate_button active {
+    background-color: #04AA6D !important;
+    color: white;
+} */
+
+/* .page-link {
+    color: black !important;
+    background-color: lightgray !important;
+} */
